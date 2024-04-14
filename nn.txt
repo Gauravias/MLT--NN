@@ -1,0 +1,517 @@
+Start Training!...Here's the data, we'll do 2 iterations:
+[ { input: [ 0, 1 ], output: [ 1, 0 ] },
+  { input: [ 1, 1 ], output: [ 1, 1 ] } ]
+======== TRAINING ITERATION 1 =========
+--------- Run input set 0: 0,1 ----------
+-> Layer 2 has 3 nodes
+   START NODE: 0
+   -> bias for node 0: 0.13861538469791412
+   -> weights for node 0:
+     -> input value: 0, weight: -0.03485306352376938
+     -> input value: 1, weight: 0.16674068570137024
+   -> node value for layer: 2, node: 0 = 0.30535607039928436 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5757513046264648
+   -> layer:2, node:0 is done
+
+   START NODE: 1
+   -> bias for node 1: -0.12367551028728485
+   -> weights for node 1:
+     -> input value: 0, weight: 0.12118933349847794
+     -> input value: 1, weight: -0.19215473532676697
+   -> node value for layer: 2, node: 1 = -0.3158302456140518 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.42169228196144104
+   -> layer:2, node:1 is done
+
+   START NODE: 2
+   -> bias for node 2: 0.1551799178123474
+   -> weights for node 2:
+     -> input value: 0, weight: 0.01784847490489483
+     -> input value: 1, weight: 0.02730054408311844
+   -> node value for layer: 2, node: 2 = 0.18248046189546585 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5454939603805542
+   -> layer:2, node:2 is done
+
+-> Layer 3 has 2 nodes
+   START NODE: 0
+   -> bias for node 0: -0.13386934995651245
+   -> weights for node 0:
+     -> input value: 0.5757513046264648, weight: -0.16104543209075928
+     -> input value: 0.42169228196144104, weight: 0.061312124133110046
+     -> input value: 0.5454939603805542, weight: 0.05124082416296005
+   -> node value for layer: 3, node: 0 = -0.17278505794348886 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.4569108784198761
+   -> layer:3, node:0 is done
+
+   START NODE: 1
+   -> bias for node 1: 0.15492039918899536
+   -> weights for node 1:
+     -> input value: 0.5757513046264648, weight: 0.10478495061397552
+     -> input value: 0.42169228196144104, weight: -0.012492481619119644
+     -> input value: 0.5454939603805542, weight: -0.014647948555648327
+   -> node value for layer: 3, node: 1 = 0.2019921206598123 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5503270030021667
+   -> layer:3, node:1 is done
+
+Calculate error delta for layer 3:
+   -> node: 0
+   -> error is 0.5430891215801239
+   -> delta is 0.1347639418130422
+   -> node: 1
+   -> error is -0.5503270030021667
+   -> delta is -0.13618787853782413
+Calculate error delta for layer 2:
+   -> node: 0
+   -> error is -0.03597355754482523
+   -> delta is -0.008786963754399161
+   -> node: 1
+   -> error is 0.009963988092636655
+   -> delta is 0.0024298968646855853
+   -> node: 2
+   -> error is 0.008900288491116154
+   -> delta is 0.002206651191851995
+Calculate error delta for layer 1:
+   -> node: 0
+   -> error is 0.0006401155434291668
+   -> delta is 0
+   -> node: 1
+   -> error is -0.001871817713965664
+   -> delta is 0
+   -> adjusted change = (learningRate * delta * value) + (momentum * change)
+      learningRate: 0.3, momentum: 0.1
+      -> layer:1, node: 0, dimension: 0, value: 0, change:0
+         adjusted change: 0
+      -> layer:1, node: 0, dimension: 1, value: 1, change:0
+         adjusted change: -0.002636088989675045
+   -> adjusting bias for layer: 1, node: 0 bias + (learningRate * delta)
+   -> 0.1359792947769165
+      -> layer:1, node: 1, dimension: 0, value: 0, change:0
+         adjusted change: 0
+      -> layer:1, node: 1, dimension: 1, value: 1, change:0
+         adjusted change: 0.0007289690896868706
+   -> adjusting bias for layer: 1, node: 1 bias + (learningRate * delta)
+   -> -0.12294653803110123
+      -> layer:1, node: 2, dimension: 0, value: 0, change:0
+         adjusted change: 0
+      -> layer:1, node: 2, dimension: 1, value: 1, change:0
+         adjusted change: 0.0006619953783228993
+   -> adjusting bias for layer: 1, node: 2 bias + (learningRate * delta)
+   -> 0.1558419167995453
+      -> layer:2, node: 0, dimension: 0, value: 0.5757513046264648, change:0
+         adjusted change: 0.023277154483359652
+      -> layer:2, node: 0, dimension: 1, value: 0.42169228196144104, change:0
+         adjusted change: 0.017048674163274713
+      -> layer:2, node: 0, dimension: 2, value: 0.5454939603805542, change:0
+         adjusted change: 0.022053874795395778
+   -> adjusting bias for layer: 2, node: 0 bias + (learningRate * delta)
+   -> -0.09344016760587692
+      -> layer:2, node: 1, dimension: 0, value: 0.5757513046264648, change:0
+         adjusted change: -0.023523105087971882
+      -> layer:2, node: 1, dimension: 1, value: 0.42169228196144104, change:0
+         adjusted change: -0.017228813523577188
+      -> layer:2, node: 1, dimension: 2, value: 0.5454939603805542, change:0
+         adjusted change: -0.022286900006610818
+   -> adjusting bias for layer: 2, node: 1 bias + (learningRate * delta)
+   -> 0.1140640377998352
+--------- Run input set 1: 1,1 ----------
+-> Layer 2 has 3 nodes
+   START NODE: 0
+   -> bias for node 0: 0.1359792947769165
+   -> weights for node 0:
+     -> input value: 1, weight: -0.03485306352376938
+     -> input value: 1, weight: 0.16410459578037262
+   -> node value for layer: 2, node: 0 = 0.26523082703351974 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5659217238426208
+   -> layer:2, node:0 is done
+
+   START NODE: 1
+   -> bias for node 1: -0.12294653803110123
+   -> weights for node 1:
+     -> input value: 1, weight: 0.12118933349847794
+     -> input value: 1, weight: -0.19142577052116394
+   -> node value for layer: 2, node: 1 = -0.19318297505378723 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.4518539011478424
+   -> layer:2, node:1 is done
+
+   START NODE: 2
+   -> bias for node 2: 0.1558419167995453
+   -> weights for node 2:
+     -> input value: 1, weight: 0.01784847490489483
+     -> input value: 1, weight: 0.027962539345026016
+   -> node value for layer: 2, node: 2 = 0.20165293104946613 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.550243079662323
+   -> layer:2, node:2 is done
+
+-> Layer 3 has 2 nodes
+   START NODE: 0
+   -> bias for node 0: -0.09344016760587692
+   -> weights for node 0:
+     -> input value: 0.5659217238426208, weight: -0.13776828348636627
+     -> input value: 0.4518539011478424, weight: 0.07836079597473145
+     -> input value: 0.550243079662323, weight: 0.07329469919204712
+   -> node value for layer: 3, node: 0 = -0.09566869972273206 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.4761010408401489
+   -> layer:3, node:0 is done
+
+   START NODE: 1
+   -> bias for node 1: 0.1140640377998352
+   -> weights for node 1:
+     -> input value: 0.5659217238426208, weight: 0.08126184344291687
+     -> input value: 0.4518539011478424, weight: -0.029721295461058617
+     -> input value: 0.550243079662323, weight: -0.03693484887480736
+   -> node value for layer: 3, node: 1 = 0.1262990520306964 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.531532883644104
+   -> layer:3, node:1 is done
+
+Calculate error delta for layer 3:
+   -> node: 0
+   -> error is 0.5238989591598511
+   -> delta is 0.13067550953003787
+   -> node: 1
+   -> error is 0.468467116355896
+   -> delta is 0.11665097157712691
+Calculate error delta for layer 2:
+   -> node: 0
+   -> error is -0.0085236678841627
+   -> delta is -0.0020938758919072874
+   -> node: 1
+   -> error is 0.006772819035239908
+   -> delta is 0.0016775050470834668
+   -> node: 2
+   -> error is 0.005269336262488822
+   -> delta is 0.0013040323267649707
+Calculate error delta for layer 1:
+   -> node: 0
+   -> error is 0.0002995486968244655
+   -> delta is 0
+   -> node: 1
+   -> error is -0.0006282682890281048
+   -> delta is 0
+   -> adjusted change = (learningRate * delta * value) + (momentum * change)
+      learningRate: 0.3, momentum: 0.1
+      -> layer:1, node: 0, dimension: 0, value: 1, change:0
+         adjusted change: -0.0006281627342104912
+      -> layer:1, node: 0, dimension: 1, value: 1, change:-0.002636088989675045
+         adjusted change: -0.0008917716331779957
+   -> adjusting bias for layer: 1, node: 0 bias + (learningRate * delta)
+   -> 0.13535113632678986
+      -> layer:1, node: 1, dimension: 0, value: 1, change:0
+         adjusted change: 0.0005032515269704163
+      -> layer:1, node: 1, dimension: 1, value: 1, change:0.0007289691129699349
+         adjusted change: 0.0005761484382674098
+   -> adjusting bias for layer: 1, node: 1 bias + (learningRate * delta)
+   -> -0.122443288564682
+      -> layer:1, node: 2, dimension: 0, value: 1, change:0
+         adjusted change: 0.0003912096843123436
+      -> layer:1, node: 2, dimension: 1, value: 1, change:0.0006619953783228993
+         adjusted change: 0.00045740922214463356
+   -> adjusting bias for layer: 1, node: 2 bias + (learningRate * delta)
+   -> 0.15623313188552856
+      -> layer:2, node: 0, dimension: 0, value: 0.5659217238426208, change:0.023277154192328453
+         adjusted change: 0.02451334831153753
+      -> layer:2, node: 0, dimension: 1, value: 0.4518539011478424, change:0.017048673704266548
+         adjusted change: 0.019418739005807727
+      -> layer:2, node: 0, dimension: 2, value: 0.550243079662323, change:0.022053875029087067
+         adjusted change: 0.023776375949915707
+   -> adjusting bias for layer: 2, node: 0 bias + (learningRate * delta)
+   -> -0.05423751473426819
+      -> layer:2, node: 1, dimension: 0, value: 0.5659217238426208, change:-0.023523105308413506
+         adjusted change: 0.01745228467283244
+      -> layer:2, node: 1, dimension: 1, value: 0.4518539011478424, change:-0.017228813841938972
+         adjusted change: 0.014089877211944477
+      -> layer:2, node: 1, dimension: 2, value: 0.550243079662323, change:-0.022286899387836456
+         adjusted change: 0.017027226555006256
+   -> adjusting bias for layer: 2, node: 1 bias + (learningRate * delta)
+   -> 0.14905932545661926
+======== TRAINING ITERATION 2 =========
+--------- Run input set 0: 0,1 ----------
+-> Layer 2 has 3 nodes
+   START NODE: 0
+   -> bias for node 0: 0.13535113632678986
+   -> weights for node 0:
+     -> input value: 0, weight: -0.035481225699186325
+     -> input value: 1, weight: 0.1632128208875656
+   -> node value for layer: 2, node: 0 = 0.29856395721435547 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5740914344787598
+   -> layer:2, node:0 is done
+
+   START NODE: 1
+   -> bias for node 1: -0.122443288564682
+   -> weights for node 1:
+     -> input value: 0, weight: 0.12169258296489716
+     -> input value: 1, weight: -0.19084961712360382
+   -> node value for layer: 2, node: 1 = -0.3132929056882858 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.4223111867904663
+   -> layer:2, node:1 is done
+
+   START NODE: 2
+   -> bias for node 2: 0.15623313188552856
+   -> weights for node 2:
+     -> input value: 0, weight: 0.018239684402942657
+     -> input value: 1, weight: 0.028419949114322662
+   -> node value for layer: 2, node: 2 = 0.18465308099985123 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5460325479507446
+   -> layer:2, node:2 is done
+
+-> Layer 3 has 2 nodes
+   START NODE: 0
+   -> bias for node 0: -0.05423751473426819
+   -> weights for node 0:
+     -> input value: 0.5740914344787598, weight: -0.11325493454933167
+     -> input value: 0.4223111867904663, weight: 0.0977795347571373
+     -> input value: 0.5460325479507446, weight: 0.097071073949337
+   -> node value for layer: 3, node: 0 = -0.024958845363514115 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.4937606155872345
+   -> layer:3, node:0 is done
+
+   START NODE: 1
+   -> bias for node 1: 0.14905932545661926
+   -> weights for node 1:
+     -> input value: 0.5740914344787598, weight: 0.09871412813663483
+     -> input value: 0.4223111867904663, weight: -0.01563141867518425
+     -> input value: 0.5460325479507446, weight: -0.019907621666789055
+   -> node value for layer: 3, node: 1 = 0.18825872852760805 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5469261407852173
+   -> layer:3, node:1 is done
+
+Calculate error delta for layer 3:
+   -> node: 0
+   -> error is 0.5062393844127655
+   -> delta is 0.1265401382455436
+   -> node: 1
+   -> error is -0.5469261407852173
+   -> delta is -0.1355271695480457
+Calculate error delta for layer 2:
+   -> node: 0
+   -> error is -0.02770974100408541
+   -> delta is -0.006775321501014893
+   -> node: 1
+   -> error is 0.014491517788912
+   -> delta is 0.0035354151424319
+   -> node: 2
+   -> error is 0.014981410722637645
+   -> delta is 0.003713607139191384
+Calculate error delta for layer 1:
+   -> node: 0
+   -> error is 0.0007383655192597805
+   -> delta is 0
+   -> node: 1
+   -> error is -0.0016750114078337135
+   -> delta is 0
+   -> adjusted change = (learningRate * delta * value) + (momentum * change)
+      learningRate: 0.3, momentum: 0.1
+      -> layer:1, node: 0, dimension: 0, value: 0, change:-0.0006281627574935555
+         adjusted change: -0.00006281627574935556
+      -> layer:1, node: 0, dimension: 1, value: 1, change:-0.0008917716331779957
+         adjusted change: -0.0021217735949903725
+   -> adjusting bias for layer: 1, node: 0 bias + (learningRate * delta)
+   -> 0.13331854343414307
+      -> layer:1, node: 1, dimension: 0, value: 0, change:0.0005032515036873519
+         adjusted change: 0.000050325150368735194
+      -> layer:1, node: 1, dimension: 1, value: 1, change:0.000576148449908942
+         adjusted change: 0.0011182393587660044
+   -> adjusting bias for layer: 1, node: 1 bias + (learningRate * delta)
+   -> -0.12138266116380692
+      -> layer:1, node: 2, dimension: 0, value: 0, change:0.0003912096726708114
+         adjusted change: 0.00003912096726708115
+      -> layer:1, node: 2, dimension: 1, value: 1, change:0.00045740921632386744
+         adjusted change: 0.0011598230485105887
+   -> adjusting bias for layer: 1, node: 2 bias + (learningRate * delta)
+   -> 0.15734721720218658
+      -> layer:2, node: 0, dimension: 0, value: 0.5740914344787598, change:0.024513348937034607
+         adjusted change: 0.02424501792368332
+      -> layer:2, node: 0, dimension: 1, value: 0.4223111867904663, change:0.019418738782405853
+         adjusted change: 0.01797366880178348
+      -> layer:2, node: 0, dimension: 2, value: 0.5460325479507446, change:0.023776376619935036
+         adjusted change: 0.02310614806886857
+   -> adjusting bias for layer: 2, node: 0 bias + (learningRate * delta)
+   -> -0.016275472939014435
+      -> layer:2, node: 1, dimension: 0, value: 0.5740914344787598, change:0.017452284693717957
+         adjusted change: -0.02159626668401273
+      -> layer:2, node: 1, dimension: 1, value: 0.4223111867904663, change:0.014089876785874367
+         adjusted change: -0.015761403530331463
+      -> layer:2, node: 1, dimension: 2, value: 0.5460325479507446, change:0.017027227208018303
+         adjusted change: -0.020497950039895938
+   -> adjusting bias for layer: 2, node: 1 bias + (learningRate * delta)
+   -> 0.10840117931365967
+--------- Run input set 1: 1,1 ----------
+-> Layer 2 has 3 nodes
+   START NODE: 0
+   -> bias for node 0: 0.13331854343414307
+   -> weights for node 0:
+     -> input value: 1, weight: -0.03554404154419899
+     -> input value: 1, weight: 0.16109104454517365
+   -> node value for layer: 2, node: 0 = 0.2588655464351177 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5643573999404907
+   -> layer:2, node:0 is done
+
+   START NODE: 1
+   -> bias for node 1: -0.12138266116380692
+   -> weights for node 1:
+     -> input value: 1, weight: 0.12174291163682938
+     -> input value: 1, weight: -0.18973137438297272
+   -> node value for layer: 2, node: 1 = -0.18937112390995026 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.45279818773269653
+   -> layer:2, node:1 is done
+
+   START NODE: 2
+   -> bias for node 2: 0.15734721720218658
+   -> weights for node 2:
+     -> input value: 1, weight: 0.018278805539011955
+     -> input value: 1, weight: 0.02957977168262005
+   -> node value for layer: 2, node: 2 = 0.2052057944238186 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5511221885681152
+   -> layer:2, node:2 is done
+
+-> Layer 3 has 2 nodes
+   START NODE: 0
+   -> bias for node 0: -0.016275472939014435
+   -> weights for node 0:
+     -> input value: 0.5643573999404907, weight: -0.08900991827249527
+     -> input value: 0.45279818773269653, weight: 0.11575320363044739
+     -> input value: 0.5511221885681152, weight: 0.12017722427845001
+   -> node value for layer: 3, node: 0 = 0.05213629670430553 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5130311250686646
+   -> layer:3, node:0 is done
+
+   START NODE: 1
+   -> bias for node 1: 0.10840117931365967
+   -> weights for node 1:
+     -> input value: 0.5643573999404907, weight: 0.07711786031723022
+     -> input value: 0.45279818773269653, weight: -0.03139282390475273
+     -> input value: 0.5511221885681152, weight: -0.04040557146072388
+   -> node value for layer: 3, node: 1 = 0.11544019370560243 ... value = bias + the sum of (dimension * weight) for every dimension in the layer}
+   -> sigmoid the node value:  0.5288280248641968
+   -> layer:3, node:1 is done
+
+Calculate error delta for layer 3:
+   -> node: 0
+   -> error is 0.48696887493133545
+   -> delta is 0.12165952644077827
+   -> node: 1
+   -> error is 0.4711719751358032
+   -> delta is 0.11740142394987547
+Calculate error delta for layer 2:
+   -> node: 0
+   -> error is -0.0017751579629419756
+   -> delta is -0.00043643700847714213
+   -> node: 1
+   -> error is 0.010396917602851108
+   -> delta is 0.002576064953082077
+   -> node: 2
+   -> error is 0.009877032481504622
+   -> delta is 0.0024434447116606843
+Calculate error delta for layer 1:
+   -> node: 0
+   -> error is 0.00037379364063796626
+   -> delta is 0
+   -> node: 1
+   -> error is -0.000486789911916587
+   -> delta is 0
+   -> adjusted change = (learningRate * delta * value) + (momentum * change)
+      learningRate: 0.3, momentum: 0.1
+      -> layer:1, node: 0, dimension: 0, value: 1, change:-0.00006281627429416403
+         adjusted change: -0.00013721272625843994
+      -> layer:1, node: 0, dimension: 1, value: 1, change:-0.002121773548424244
+         adjusted change: -0.0003431084536714479
+   -> adjusting bias for layer: 1, node: 0 bias + (learningRate * delta)
+   -> 0.13318760693073273
+      -> layer:1, node: 1, dimension: 0, value: 1, change:0.000050325150368735194
+         adjusted change: 0.0007778520201100036
+      -> layer:1, node: 1, dimension: 1, value: 1, change:0.0011182393645867705
+         adjusted change: 0.0008846434415318072
+   -> adjusting bias for layer: 1, node: 1 bias + (learningRate * delta)
+   -> -0.1206098422408104
+      -> layer:1, node: 2, dimension: 0, value: 1, change:0.000039120968722272664
+         adjusted change: 0.0007369455015577842
+      -> layer:1, node: 2, dimension: 1, value: 1, change:0.0011598230339586735
+         adjusted change: 0.0008490157080814243
+   -> adjusting bias for layer: 1, node: 2 bias + (learningRate * delta)
+   -> 0.15808025002479553
+      -> layer:2, node: 0, dimension: 0, value: 0.5643573999404907, change:0.024245018139481544
+         adjusted change: 0.023022337731821718
+      -> layer:2, node: 0, dimension: 1, value: 0.45279818773269653, change:0.01797366887331009
+         adjusted change: 0.0183235305839744
+      -> layer:2, node: 0, dimension: 2, value: 0.5511221885681152, change:0.023106148466467857
+         adjusted change: 0.022425393906906167
+   -> adjusting bias for layer: 2, node: 0 bias + (learningRate * delta)
+   -> 0.020222384482622147
+      -> layer:2, node: 1, dimension: 0, value: 0.5643573999404907, change:-0.021596265956759453
+         adjusted change: 0.017717281627655977
+      -> layer:2, node: 1, dimension: 1, value: 0.45279818773269653, change:-0.015761403366923332
+         adjusted change: 0.01437160487264286
+      -> layer:2, node: 1, dimension: 2, value: 0.5511221885681152, change:-0.020497949793934822
+         adjusted change: 0.017360963456954433
+   -> adjusting bias for layer: 2, node: 1 bias + (learningRate * delta)
+   -> 0.14362160861492157
+
+HERE'S YOUR TRAINED NETWORK!
+{
+  "sizes": [
+    2,
+    3,
+    2
+  ],
+  "layers": [
+    {
+      "0": {
+        
+      },
+      "1": {
+        
+      }
+    },
+    {
+      "0": {
+        "bias": 0.13318760693073,
+        "weights": {
+          "0": -0.035681255161762,
+          "1": 0.16074793040752
+        }
+      },
+      "1": {
+        "bias": -0.12060984224081,
+        "weights": {
+          "0": 0.12252076715231,
+          "1": -0.18884673714638
+        }
+      },
+      "2": {
+        "bias": 0.1580802500248,
+        "weights": {
+          "0": 0.019015751779079,
+          "1": 0.030428787693381
+        }
+      }
+    },
+    {
+      "0": {
+        "bias": 0.020222384482622,
+        "weights": {
+          "0": -0.065987579524517,
+          "1": 0.13407672941685,
+          "2": 0.142602622509
+        }
+      },
+      "1": {
+        "bias": 0.14362160861492,
+        "weights": {
+          "0": 0.094835139811039,
+          "1": -0.017021218314767,
+          "2": -0.023044608533382
+        }
+      }
+    }
+  ],
+  "outputLookup": false,
+  "inputLookup": false,
+  "activation": "sigmoid",
+  "trainOpts": {
+    "iterations": 2,
+    "errorThresh": 0.005,
+    "log": false,
+    "logPeriod": 10,
+    "learningRate": 0.3,
+    "momentum": 0.1,
+    "callbackPeriod": 10
+  }
+}
